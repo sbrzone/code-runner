@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mobile Code Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <div class="grid-container">
+        <div class="card-wrapper html-theme">
+            <div class="glass-card">
+                <div class="label">HTML</div>
+                <div class="editor-container">
+                    <textarea id="input-html" class="real-textarea" spellcheck="false" oninput="updateHighlight('html')" onscroll="syncScroll('html')" placeholder="Write HTML here..."></textarea>
+                    <pre class="highlight-layer" id="view-html"><code></code></pre>
+                </div>
+            </div>
+            <button class="export-btn" onclick="triggerDownload('input-html', 'index.html')">Export HTML</button>
+        </div>
+
+        <div class="card-wrapper css-theme">
+            <div class="glass-card">
+                <div class="label">CSS</div>
+                <div class="editor-container">
+                    <textarea id="input-css" class="real-textarea" spellcheck="false" oninput="updateHighlight('css')" onscroll="syncScroll('css')" placeholder="Write CSS here..."></textarea>
+                    <pre class="highlight-layer" id="view-css"><code></code></pre>
+                </div>
+            </div>
+            <button class="export-btn" onclick="triggerDownload('input-css', 'style.css')">Export CSS</button>
+        </div>
+
+        <div class="card-wrapper js-theme">
+            <div class="glass-card">
+                <div class="label">JavaScript</div>
+                <div class="editor-container">
+                    <textarea id="input-js" class="real-textarea" spellcheck="false" oninput="updateHighlight('js')" onscroll="syncScroll('js')" placeholder="Write JS here..."></textarea>
+                    <pre class="highlight-layer" id="view-js"><code></code></pre>
+                </div>
+            </div>
+            <button class="export-btn" onclick="triggerDownload('input-js', 'script.js')">Export JS</button>
+        </div>
+    </div>
+
+    <button class="run-btn" onclick="runCode()">▶ Run Code</button>
+
+    <div id="preview-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Live Preview</span>
+                <button class="close-btn" onclick="closePreview()">✕</button>
+            </div>
+            <iframe id="output-frame"></iframe>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
